@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>공학용 계산기</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    form {
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+    
+    label {
+      display: inline-block;
+      width: 100px;
+      font-weight: bold;
+    }
+    
+    input {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 200px;
+    }
+    
+    button {
+      padding: 8px 12px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+    
+    .result {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>공학용 계산기</h1>
+    
+    <form>
+      <div class="form-group">
+        <label for="num1">첫 번째 숫자:</label>
+        <input type="number" id="num1" required>
+      </div>
+      <div class="form-group">
+        <label for="num2">두 번째 숫자:</label>
+        <input type="number" id="num2" required>
+      </div>
+      <div class="form-group">
+        <label for="operator">연산자:</label>
+        <select id="operator">
+          <option value="add">+</option>
+          <option value="subtract">-</option>
+          <option value="multiply">*</option>
+          <option value="divide">/</option>
+        </select>
+      </div>
+      <button type="button" onclick="calculate()">계산하기</button>
+    </form>
+
+    <div class="result">
+      <h3>결과:</h3>
+      <span id="output"></span>
+    </div>
+  </div>
+  
+  <script>
+    function calculate() {
+      var num1 = parseInt(document.getElementById("num1").value);
+      var num2 = parseInt(document.getElementById("num2").value);
+      var operator = document.getElementById("operator").value;
+      var result;
+      
+      switch(operator) {
+        case "add":
+          result = num1 + num2;
+          break;
+        case "subtract":
+          result = num1 - num2;
+          break;
+        case "multiply":
+          result = num1 * num2;
+          break;
+        case "divide":
+          result = num1 / num2;
+          break;
+        default:
+          result = "Invalid operator";
+      }
+      
+      document.getElementById("output").textContent = result;
+    }
+  </script>
+</body>
+</html>
